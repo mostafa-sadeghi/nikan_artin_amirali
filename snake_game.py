@@ -23,12 +23,14 @@
 #         break
 
 
-# TODO
+# TODO  تمرین
 all_names = "danial,amirali,nikan,artin"
 # با کمک حلقه فور اسم ها را از متن بالا جداد جدا کنید
 # این کار را با حلقه وایل نیز انجام دهید
 # اگر لیست بود که خیلی راحت بود مثل پایین
-my_students = ["danial","amirali","nikan","artin"]
+
+# مثال از لیست نه از رشته
+my_students = ["danial", "amirali", "nikan", "artin"]
 for student in my_students:
     print(student)
 
