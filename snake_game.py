@@ -1,43 +1,38 @@
-# import turtle
+import turtle
+my_screen = turtle.Screen()
+my_screen.bgcolor('black')
+my_screen.setup(600, 600)
+my_screen.title("Snake")
 
-# my_screen = turtle.Screen()
-# my_screen.bgcolor('black')
-# my_screen.setup(600, 600)
-# my_screen.title("Snake")
+snake_head = turtle.Turtle()
+snake_head.shape("square")
+snake_head.color("green")
+snake_head.direction = ""
+snake_head.penup()
+def move():
+    if snake_head.direction == "up":
+        y = snake_head.ycor()
+        y += 20
+        snake_head.sety(y)
+    # if
 
+def go_up():
+    snake_head.direction = "up"
 
-# running = True
-# while running == True:
-#     my_screen.update()
+# def go_down():
 
-# for i in range(5):
-#     n = input("Do you want to quit? (yes or no): ")
-#     if n == "yes":
-#         print("bye")
-#         break
-# a = True
-# while a:
-#     n = input("Do you want to quit? (yes or no): ")
-#     if n == "yes":
-#         print("bye")
-#         break
+my_screen.listen()
+my_screen.onkeypress(go_up, "Up")
+# my_screen.onkeypress(go_down, "Down")
+# TODO هر وقت از روی کیبورد دکمه جهت پایین را فشار می دهیم سر مار به سمت پایین حرکت نماید
+def close():
+    global running
+    running = False
 
+root = my_screen._root
+root.protocol("WM_DELETE_WINDOW", close)
+running = True
+while running == True:
+    my_screen.update()
+    move()
 
-# TODO  تمرین
-# all_names = "danial,amirali,nikan,artin"
-# با کمک حلقه فور اسم ها را از متن بالا جداد جدا کنید
-# این کار را با حلقه وایل نیز انجام دهید
-# اگر لیست بود که خیلی راحت بود مثل پایین
-
-# مثال از لیست نه از رشته
-# my_students = ["danial", "amirali", "nikan", "artin"]
-# for student in my_students:
-#     print(student)
-
-# for i in range(len(my_students)):
-#     print(my_students[i])
-
-
-all_names = "danial,amirali,nikan,artin"
-for i in range(len(all_names)):  
-    print(all_names[i])
