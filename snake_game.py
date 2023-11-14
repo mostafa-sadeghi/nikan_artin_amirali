@@ -1,38 +1,28 @@
 import turtle
-my_screen = turtle.Screen()
-my_screen.bgcolor('black')
-my_screen.setup(600, 600)
-my_screen.title("Snake")
+import random
+screen = turtle.Screen()
+screen.bgcolor('black')
+screen.setup(600,600)
 
-snake_head = turtle.Turtle()
-snake_head.shape("square")
-snake_head.color("green")
-snake_head.direction = ""
-snake_head.penup()
-def move():
-    if snake_head.direction == "up":
-        y = snake_head.ycor()
-        y += 20
-        snake_head.sety(y)
-    # if
 
-def go_up():
-    snake_head.direction = "up"
+def create_turtle(s, c):
+    my_turtle = turtle.Turtle()
+    my_turtle.shape(s)
+    my_turtle.color(c)
+    my_turtle.penup()
+    return my_turtle
 
-# def go_down():
+def change_position():
+    x = random.randint(-270, 270)
+    y = random.randint(-270, 230)
+    snake_food.goto(x,y)
 
-my_screen.listen()
-my_screen.onkeypress(go_up, "Up")
-# my_screen.onkeypress(go_down, "Down")
-# TODO هر وقت از روی کیبورد دکمه جهت پایین را فشار می دهیم سر مار به سمت پایین حرکت نماید
-def close():
-    global running
-    running = False
 
-root = my_screen._root
-root.protocol("WM_DELETE_WINDOW", close)
+snake_head = create_turtle("square", "darkgreen")
+snake_food = create_turtle("circle", "red")
+change_position()
 running = True
-while running == True:
-    my_screen.update()
-    move()
+while running:
+    screen.update()
+
 
